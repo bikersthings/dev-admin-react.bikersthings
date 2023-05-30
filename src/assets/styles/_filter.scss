@@ -1,0 +1,17 @@
+.filter {
+    .accordion {
+        .accordion-item {
+            h2.filter-title {
+                button {
+                    background: var(--gradient);
+                    color: white;
+
+                    &::after {
+                        color: white;
+                        background-image: url("/img/material/arrow.png") !important;
+                    }
+                }
+            }
+        }
+    }
+}

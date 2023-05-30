@@ -1,0 +1,66 @@
+#root {
+    .btn {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 24px;
+        padding: 0.3rem 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-primary,
+    .btn-primary.disabled {
+        box-shadow: 0 2px 6px #acb5f6;
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .btn-success,
+    .btn-success.disabled {
+        box-shadow: 0 2px 6px #81d694;
+        background-color: #47c363;
+        border-color: #47c363;
+        color: #fff;
+    }
+
+    .btn-info,
+    .btn-info.disabled {
+        box-shadow: 0 2px 6px #82d3f8;
+        background-color: #3abaf4;
+        border-color: #3abaf4;
+        color: #fff;
+    }
+
+    .btn-gradient {
+        background: linear-gradient(90deg, #044660 0.18%, #1596b2 100.18%);
+        color: white;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+        padding: 5px 50px;
+        border: transparent;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    .btn-sosmed {
+        width: 100%;
+        padding: 5px 0px 3px 0px;
+        background-color: white;
+        color: black;
+        font-weight: bolder;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        border-color: transparent;
+        font-size: smaller;
+
+        &:hover {
+            background: var(--gradient);
+            color: white;
+        }
+
+        img {
+            margin-right: 10px;
+        }
+    }
+}
