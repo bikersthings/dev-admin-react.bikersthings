@@ -7,6 +7,7 @@
 @import "./assets/styles/cards";
 @import "./assets/styles/gallery";
 @import "./assets/styles/filter";
+@import "./assets/styles/table";
 
 :root {
     --gradient: linear-gradient(90deg, rgba(5, 70, 97, 1) 0%, rgba(24, 151, 182, 1) 100%);
@@ -116,13 +117,17 @@ a:hover {
     background-color: #ffc107;
 }
 
+.badge-danger {
+    background-color: #fc544b;
+}
+
 .badge {
-    vertical-align: middle;
-    padding: 7px 12px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    border-radius: 30px;
-    font-size: 12px;
+    vertical-align: middle !important;
+    padding: 7px 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    border-radius: 30px !important;
+    font-size: 12px !important;
 }
 
 .head-section {
@@ -708,6 +713,47 @@ input:focus {
         }
         .swal2-deny {
             background-color: var(--gray);
+        }
+    }
+}
+
+.form-group {
+    .form-control {
+        font-size: 14px !important;
+        padding: 10px 15px !important;
+        height: 42px !important;
+        background-color: #fdfdff;
+        border-color: #e4e6fc;
+        display: block;
+        width: 100%;
+
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+}
+
+.input-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+
+    .input-group-prepend {
+        display: flex;
+        margin-right: -1px;
+        .input-group-text {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            background-color: #fdfdff;
         }
     }
 }

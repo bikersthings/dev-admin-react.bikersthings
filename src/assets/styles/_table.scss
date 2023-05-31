@@ -1,0 +1,50 @@
+.table {
+    &.dataTable {
+        clear: both;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+        max-width: none !important;
+        border-collapse: separate !important;
+        border-spacing: 0;
+    }
+
+    &.no-footer {
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    thead {
+        th {
+            border-bottom: none;
+            background-color: rgba(0, 0, 0, 0.04);
+            color: #666;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 13px;
+            font-weight: 700;
+
+            &::before {
+                right: 1em;
+                content: "\2191";
+            }
+
+            &::after {
+                right: 0.5em;
+                content: "\2193";
+            }
+        }
+    }
+
+    tbody {
+        tr:nth-child(odd) {
+            td {
+            }
+        }
+        td {
+            background-color: rgba(0, 0, 0, 0.02);
+            padding: 0.75rem;
+            font-weight: 400;
+            font-size: 13px;
+            color: #6c757d;
+        }
+    }
+}

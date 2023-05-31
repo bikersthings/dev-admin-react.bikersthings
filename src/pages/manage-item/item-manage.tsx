@@ -48,7 +48,7 @@ export default () => {
                 </div>
             </section>
             <section className="d-flex flex-row gap-2">
-                <a href="/user/item/create" className="btn btn-primary mb-4">Tambah Item</a>
+                <a href="/create" className="btn btn-primary mb-4">Tambah Item</a>
                 <a href="" className="btn btn-success mb-4">Import Excel Item</a>
                 <a href="" className="btn btn-info mb-4">Beli Boost! Voucher</a>
             </section>
@@ -56,40 +56,64 @@ export default () => {
 
             </div>
             <section className="table-item">
-                <div className="card card-primary">
-                    <table className="table table-striped dataTable no-footer">
+                <div className="card card-primary p-4">
+                    <table className="table   dataTable no-footer">
                         <thead className="text-center">
-                            <tr role="row">
-                                <th className="sorting_desc" tabIndex={0} aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="
-                                                #
-                                            : activate to sort column ascending" aria-sort="descending">
+                            <tr>
+                                <th>
                                     #
                                 </th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Produk: activate to sort column ascending">Produk</th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Dilihat: activate to sort column ascending" >Dilihat</th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Harga: activate to sort column ascending"  >Harga</th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Kategori: activate to sort column ascending"  >Kategori</th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Brand: activate to sort column ascending"  >Brand</th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Tipe: activate to sort column ascending"  >Tipe</th>
-                                <th className="sorting_disabled" rowSpan={1} colSpan={1} aria-label="Status" >Status</th>
-                                <th className="sorting" aria-controls="dataTable" rowSpan={1} colSpan={1} aria-label="Action: activate to sort column ascending"  >Action</th>
+                                <th>Owner</th>
+                                <th>Item</th>
+                                <th>Dilihat</th>
+                                <th>Tipe</th>
+                                <th>Kondisi</th>
+                                <th>Harga</th>
+                                <th>Kategori</th>
+                                <th>Brand</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td>
-                                    <div className="badge badge-dark">Reguler</div>
-                                    <div className="badge badge-warning">On Hold</div>
-                                    <div className="badge badge-primary">Boosted!</div>
+                            <tr className="odd">
+                                <td className="align-middle ">
+                                    1
                                 </td>
-                                <td className="align-middle text-center">
+                                <td className="align-middle ">
+                                    [Nama Toko] <br />
+                                    [ID Toko 10 Digit]
+                                </td>
+                                <td className="">
+                                    <div className="badge badge-primary mt-2">Nama Item</div>
+                                    <br />
+                                    [ID Item 10 Digit]
+                                </td>
+
+                                <td className="align-middle">
+                                    {/* <i className="fas fa-eye mr-1"></i> 2.000 */}
+                                </td>
+                                <td className="align-middle">
+                                    WTS
+                                </td>
+                                <td className="align-middle">
+                                    Baru
+                                </td>
+                                <td className="align-middle">
+                                    Rp [90.000.000]
+                                </td>
+                                <td className="align-middle">
+                                    [Kategori]
+                                </td>
+                                <td className="align-middle">
+                                    [Brand]
+                                </td>
+                                <td className="align-middle">
+                                    <div className="badge badge-dark">Reguler</div> <br />
+                                    <div className="badge badge-primary">Boosted!</div> <br />
+                                    <div className="badge badge-danger">Banned</div>
+                                </td>
+                                <td className="align-middle ">
                                     <button className="btn btn-success" id="swalBoost" onClick={() => boostItem()}>
                                         <FontAwesomeIcon icon={faRocket} />
                                     </button>
@@ -101,7 +125,6 @@ export default () => {
                                     </button>
                                 </td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div >
