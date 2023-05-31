@@ -17,8 +17,8 @@ export default () => {
                     </div>
 
                     <ul className="sidebar-menu">
-                        <li className={location.pathname === '/manage-item' ? 'active' : ''}>
-                            <a className="nav-link" href="/manage-item">
+                        <li className={location.pathname === '/' ? 'active' : ''}>
+                            <a className="nav-link" href="/">
                                 <FontAwesomeIcon icon={faBoxes} />
                                 <span>Items</span>
                             </a>
