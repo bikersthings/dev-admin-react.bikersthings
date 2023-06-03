@@ -12,7 +12,7 @@ import CreateItem from "../pages/manage-item/item-create";
 import Profile from "../pages/profile";
 import Wishlist from "../pages/wishlist";
 import IceBoxDashboard from "../pages/ice-box-dashboard";
-
+import Login from "../pages/login";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
 
         ],
     },
+    {
+        path: "/login",
+        element: <Login />,
+    }
 ]);
 
 export default router;

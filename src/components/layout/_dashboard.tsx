@@ -3,7 +3,18 @@ import Sidebar from '../sidebar/_sidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faPowerOff } from "@fortawesome/free-solid-svg-icons"
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useUserStore } from "../../zustand/index"
 export default () => {
+
+
+    // const getUser = () => {
+    //     const getUserData = useUserStore((state) => state.setUser)
+    //     console.log(getUserData())
+    // }
+
+    // getUser()
+
+    console.log('setup router')
     return (
         <>
             <div className="dashboard">
