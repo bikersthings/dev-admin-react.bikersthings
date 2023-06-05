@@ -1,8 +1,7 @@
 import { faBoxes, faCashRegister, faClipboardList, faCog, faGift, faImages, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useLocation } from "react-router-dom"
-
-
+import { Link } from "react-router-dom";
 export default () => {
     const location = useLocation()
     console.log(location)
@@ -53,15 +52,17 @@ export default () => {
                         <li className="menu-header">Business CMS</li>
                         <li className={location.pathname === '/' ? 'active' : ''}>
                             <a className="nav-link" href="/">
+
                                 <FontAwesomeIcon icon={faBoxes} />
                                 <span>Items</span>
                             </a>
                         </li>
                         <li className={location.pathname === '/ice-box-dashboard' ? 'active' : ''}>
-                            <a className="nav-link" href="ice-box-dashboard">
+                            <Link to='/ice-box-dashboard'>
                                 <FontAwesomeIcon icon={faGift} />
                                 <span>Ice Box</span>
-                            </a>
+                            </Link>
+
                         </li>
                         <li className={location.pathname === '/profile' ? 'active' : ''}>
                             <a className="nav-link" href="/profile">

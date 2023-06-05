@@ -1,6 +1,7 @@
 import { faPenClip, faRocket, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Swal from 'sweetalert2'
+import { Link } from "react-router-dom";
 
 export default () => {
     const deleteItem = () => {
@@ -47,10 +48,11 @@ export default () => {
                     <div className="badge badge-primary">Boost! Voucher : [10]</div>
                 </div>
             </section>
-            <section className="d-flex flex-row gap-2">
-                <a href="/create" className="btn btn-primary mb-4">Tambah Item</a>
-                <a href="" className="btn btn-success mb-4">Import Excel Item</a>
-                <a href="" className="btn btn-info mb-4">Beli Boost! Voucher</a>
+            <section className="d-flex flex-row gap-2 mb-4">
+                <Link to="/create" className="btn btn-primary">Tambah Item</Link>
+                {/* <a href="/create" className="btn btn-primary mb-4"></a> */}
+                {/* <a href="" className="btn btn-success mb-4">Import Excel Item</a>
+                <a href="" className="btn btn-info mb-4">Beli Boost! Voucher</a> */}
             </section>
             <div className="d-flex flex-row">
 
