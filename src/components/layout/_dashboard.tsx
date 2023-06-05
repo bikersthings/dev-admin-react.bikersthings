@@ -3,7 +3,6 @@ import Sidebar from '../sidebar/_sidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faPowerOff } from "@fortawesome/free-solid-svg-icons"
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useUserStore } from "../../zustand/index"
 export default () => {
 
 

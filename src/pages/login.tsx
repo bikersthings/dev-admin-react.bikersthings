@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { useUserStore } from "../zustand"
-
+import { useNavigate } from "react-router-dom"
 
 
 export default () => {
+    const navigate = useNavigate()
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
@@ -13,8 +14,14 @@ export default () => {
         e.preventDefault()
         user()
         localStorage.setItem('isLogin', 'true')
-    }
 
+        const isLoggedIn = localStorage.getItem('isLogin')
+
+        if (isLoggedIn === 'true') {
+            console.log(isLoggedIn)
+            navigate({ pathname: '/' })
+        }
+    }
 
     return (
         <>

@@ -1,8 +1,7 @@
 import { faPenClip, faRocket, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Swal from 'sweetalert2'
-import { useUserState } from "../zustand"
-import { useEffect } from "react"
+
 
 export default () => {
     const deleteItem = () => {
@@ -111,7 +110,7 @@ export default () => {
                                     <button className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">50 / 100 Participant </button>
                                     <br />
                                     <div className="progress my-3">
-                                        <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: '50%' }}></div>
+                                        <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style={{ width: '50%' }}></div>
                                     </div>
                                     <div className="badge badge-success">Active : [yyyy/mm/dd]</div>
                                 </td>

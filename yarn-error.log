@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/2ureternity/.nvm/versions/node/v19.8.1/bin/node /usr/local/bin/yarn add @hookform/resolvers/yup
+  /Users/2ureternity/.nvm/versions/node/v19.8.1/bin/node /usr/local/bin/yarn add swiperjs
 
 PATH: 
   /opt/homebrew/opt/php@8.2/sbin:/opt/homebrew/opt/php@8.2/bin:/Users/2ureternity/.nvm/versions/node/v19.8.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/bin
@@ -14,8 +14,8 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.npmjs.org/@hookform%2fresolvers/yup: Request "https://registry.npmjs.org/@hookform%2fresolvers/yup" returned a 405
-      at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66154:18)
+  Error: https://registry.npmjs.org/swiperjs: Not found
+      at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
       at self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:512:28)
       at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
@@ -43,6 +43,7 @@ npm manifest:
       "@fortawesome/free-regular-svg-icons": "^6.4.0",
       "@fortawesome/free-solid-svg-icons": "^6.4.0",
       "@fortawesome/react-fontawesome": "^0.2.0",
+      "@hookform/resolvers": "^3.1.0",
       "@splidejs/react-splide": "^0.7.12",
       "bootstrap": "^5.2.3",
       "filepond": "^4.30.4",
@@ -408,6 +409,11 @@ Lockfile:
     integrity sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw==
     dependencies:
       prop-types "^15.8.1"
+  
+  "@hookform/resolvers@^3.1.0":
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-3.1.0.tgz#ff83ef4aa6078173201da131ceea4c3583b67034"
+    integrity sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==
   
   "@humanwhocodes/config-array@^0.11.8":
     version "0.11.8"

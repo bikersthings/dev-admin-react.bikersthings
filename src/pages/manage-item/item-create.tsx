@@ -54,7 +54,7 @@ export default () => {
     }, [])
 
 
-    const { register, setValue, getValues, handleSubmit, formState: { errors } } = useForm<AddItemType>({
+    const { register, setValue, handleSubmit } = useForm<AddItemType>({
         resolver: yupResolver(
             yup.object({
                 userName: yup.string(),
