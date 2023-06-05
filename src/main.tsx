@@ -9,8 +9,6 @@ import 'swiper/css/bundle';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'sweetalert2/src/sweetalert2.scss'
-import '@splidejs/splide/dist/css/splide.min.css';
-import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

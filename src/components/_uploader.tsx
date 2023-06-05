@@ -16,9 +16,7 @@ export default (
     }: {
         onChange: (files: FilePondProps[]) => void;
     }) => {
-    const [files, setFiles] = useState([])
-
-    setFiles([])
+    const [files] = useState([])
 
     return (
         <div className="App">
