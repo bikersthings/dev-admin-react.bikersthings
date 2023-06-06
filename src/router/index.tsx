@@ -13,6 +13,7 @@ import Profile from "../pages/profile";
 import Wishlist from "../pages/wishlist";
 import IceBoxDashboard from "../pages/ice-box-dashboard";
 import Login from "../pages/login";
+import Brands from "../pages/coresys/brands";
 
 const auth = () => {
     const state = localStorage.getItem('isLogin')
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
                 element: <ManageItem />,
             },
             {
-                path: "/create",
+                path: "/items/create",
                 element: <CreateItem />,
             },
             {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path: "/ice-box-dashboard",
                 element: <IceBoxDashboard />,
+            },
+            {
+                path: "/brands",
+                element: <Brands />,
             },
 
         ],

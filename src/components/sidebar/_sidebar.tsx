@@ -50,9 +50,8 @@ export default () => {
 
                     <ul className="sidebar-menu">
                         <li className="menu-header">Business CMS</li>
-                        <li className={location.pathname === '/' ? 'active' : ''}>
+                        <li className={location.pathname === '/' || location.pathname.includes('items') ? 'active' : ''}>
                             <a className="nav-link" href="/">
-
                                 <FontAwesomeIcon icon={faBoxes} />
                                 <span>Items</span>
                             </a>
@@ -92,11 +91,11 @@ export default () => {
                         </li>
 
                         <li className="menu-header">Manage Core System</li>
-                        <li className="">
-                            <a className="nav-link" href="/core-brand">
+                        <li className={location.pathname.includes('brands') ? 'active' : ''}>
+                            <Link to='/brands'>
                                 <FontAwesomeIcon icon={faCog} />
                                 <span>Brand</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="">
                             <a className="nav-link" href="/core-category">
@@ -104,7 +103,7 @@ export default () => {
                                 <span>Kategori</span>
                             </a>
                         </li>
-                        <li className="">
+                        <li >
                             <a className="nav-link" href="/core-sosmed">
                                 <FontAwesomeIcon icon={faCog} />
                                 <span>Sosmed</span>

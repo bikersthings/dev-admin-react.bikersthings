@@ -49,29 +49,32 @@ export default () => {
                 </div>
             </section>
             <section className="d-flex flex-row gap-2 mb-4">
-                <Link to="items/create" className="btn btn-primary">Tambah Item</Link>
-
+                <Link to="/create" className="btn btn-primary">Tambah Item</Link>
             </section>
-            <div className="d-flex flex-row">
 
-            </div>
             <section className="table-item">
                 <div className="card card-primary p-4">
+                    <div className="row justify-content-between">
+                        <div className="form-group d-flex flex-row align-items-center justify-content-left mb-3 col-2">
+                            <label htmlFor="">Show</label>
+                            <select name="" id="" className="form-control mx-3">
+                                <option value="">10</option>
+                                <option value="">20</option>
+                            </select>
+                            <label htmlFor="">Entries</label>
+                        </div>
+                        <div className="form-group d-flex flex-row align-items-center justify-content-left mb-3 col-4">
+                            <label htmlFor="" className="mx-2">Show</label>
+                            <input type="text" className="form-control" />
+                        </div>
+                    </div>
                     <table className="table   dataTable no-footer">
                         <thead className="text-center">
                             <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>Owner</th>
-                                <th>Item</th>
-                                <th>Dilihat</th>
-                                <th>Tipe</th>
-                                <th>Kondisi</th>
-                                <th>Harga</th>
-                                <th>Kategori</th>
-                                <th>Brand</th>
-                                <th>Status</th>
+                                <th> # </th>
+                                <th>ID</th>
+                                <th>Nama</th>
+                                <th>Logo</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -92,26 +95,6 @@ export default () => {
 
                                 <td className="align-middle">
                                     {/* <i className="fas fa-eye mr-1"></i> 2.000 */}
-                                </td>
-                                <td className="align-middle">
-                                    WTS
-                                </td>
-                                <td className="align-middle">
-                                    Baru
-                                </td>
-                                <td className="align-middle">
-                                    Rp [90.000.000]
-                                </td>
-                                <td className="align-middle">
-                                    [Kategori]
-                                </td>
-                                <td className="align-middle">
-                                    [Brand]
-                                </td>
-                                <td className="align-middle">
-                                    <div className="badge badge-dark">Reguler</div> <br />
-                                    <div className="badge badge-primary">Boosted!</div> <br />
-                                    <div className="badge badge-danger">Banned</div>
                                 </td>
                                 <td className="align-middle ">
                                     <button className="btn btn-success" id="swalBoost" onClick={() => boostItem()}>
