@@ -1,17 +1,17 @@
-import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faEye, faPenClip, faRocket, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
-import { useBrandStore } from "../../zustand";
+import { useCategoryStore } from "../../zustand";
 import { useEffect } from "react";
 
 export default () => {
-    const getBrands = useBrandStore((state) => state.getBrands)
-    const brandStore = useBrandStore((state) => state.brands)
+    const getCategory = useCategoryStore((state) => state.getCategory)
+    const categoryStore = useCategoryStore((state) => state.category)
 
     useEffect(() => {
-        getBrands()
-    }, [getBrands])
+        getCategory()
+    }, [getCategory])
 
 
     const deleteItem = () => {
@@ -55,11 +55,11 @@ export default () => {
         <>
             <section className="manage-item">
                 <div className="headline">
-                    <h4>List Brand</h4>
+                    <h4>List Category</h4>
                 </div>
             </section>
             <section className="d-flex flex-row gap-2 mb-4">
-                <Link to="/brand" className="btn btn-primary">Tambah Brand</Link>
+                <Link to="/brand" className="btn btn-primary">Tambah Category</Link>
 
             </section>
 
@@ -85,12 +85,12 @@ export default () => {
                                 <th> # </th>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Logo</th>
+                                <th>Icon</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {brandStore && brandStore.map((item, index) => {
+                            {categoryStore && categoryStore.map((item, index) => {
                                 return (
                                     <tr className="odd" key={index}>
                                         <td className="align-middle ">
@@ -100,10 +100,10 @@ export default () => {
                                             {index + 1}
                                         </td>
                                         <td className="">
-                                            {item.nama_brand}
+                                            {item.nama_kategori}
                                         </td>
                                         <td className="align-middle">
-                                            <img src={item.logo_brand ? item.logo_brand : "http://via.placeholder.com/100x100"} alt={item.nama_brand} />
+                                            <img src={item.icon_kategori ? item.icon_kategori : "http://via.placeholder.com/100x100"} alt={item.nama_kategori} />
                                         </td>
                                         <td className="align-middle ">
                                             <button className="btn btn-info mx-2" id="swalBoost" onClick={() => boostItem()}>

@@ -1,12 +1,9 @@
 import { create } from 'zustand'
 import { api } from '../config/api'
+import { UserStoreInterface, BrandStoreInterface, CategoryStoreInterface } from '../types/interface'
 
-interface StoreInterface {
-    user: string | unknown | string[]
-    setUser: () => void
-}
 
-export const useUserStore = create<StoreInterface>()((set) => ({
+export const useUserStore = create<UserStoreInterface>()((set) => ({
     user: 'fahmi',
     setUser: async () => {
         try {
@@ -18,3 +15,44 @@ export const useUserStore = create<StoreInterface>()((set) => ({
     }
 }))
 
+export const useBrandStore = create<BrandStoreInterface>()((set) => ({
+    metadata: null,
+    totalFiltered: 0,
+    brands: null,
+    isLoading: false,
+    isError: '',
+    getBrands: async () => {
+        try {
+            const brandResponse = await api('GET', 'admin/brand')
+            const resp = await brandResponse.json()
+            set({
+                brands: resp.response.result,
+                metadata: resp.metadata,
+                totalFiltered: resp.response.totalFilterd
+            })
+        } catch (error) {
+            set({ isError: error })
+        }
+    }
+}))
+
+export const useCategoryStore = create<CategoryStoreInterface>()((set) => ({
+    metadata: null,
+    totalFiltered: 0,
+    category: null,
+    isLoading: false,
+    isError: '',
+    getCategory: async () => {
+        try {
+            const brandResponse = await api('GET', 'admin/kategori')
+            const resp = await brandResponse.json()
+            set({
+                category: resp.response.result,
+                metadata: resp.metadata,
+                totalFiltered: resp.response.totalFiltered
+            })
+        } catch (error) {
+            set({ isError: error })
+        }
+    }
+}))

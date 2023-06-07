@@ -14,6 +14,7 @@ import Wishlist from "../pages/wishlist";
 import IceBoxDashboard from "../pages/ice-box-dashboard";
 import Login from "../pages/login";
 import Brands from "../pages/coresys/brands";
+import Category from "../pages/coresys/category";
 
 const auth = () => {
     const state = localStorage.getItem('isLogin')
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: "/brands",
                 element: <Brands />,
+            },
+            {
+                path: "/category",
+                element: <Category />,
             },
 
         ],
