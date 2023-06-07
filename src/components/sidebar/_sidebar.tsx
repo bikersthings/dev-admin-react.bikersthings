@@ -63,7 +63,7 @@ export default () => {
                             </Link>
 
                         </li>
-                        <li className={location.pathname === '/profile' ? 'active' : ''}>
+                        {/* <li className={location.pathname === '/profile' ? 'active' : ''}>
                             <a className="nav-link" href="/profile">
                                 <FontAwesomeIcon icon={faUser} />
                                 <span>User</span>
@@ -88,7 +88,7 @@ export default () => {
                                 <FontAwesomeIcon icon={faClipboardList} />
                                 <span>TnC</span>
                             </a>
-                        </li>
+                        </li> */}
 
                         <li className="menu-header">Manage Core System</li>
                         <li className={location.pathname.includes('brands') ? 'active' : ''}>
@@ -97,11 +97,11 @@ export default () => {
                                 <span>Brand</span>
                             </Link>
                         </li>
-                        <li className="">
-                            <a className="nav-link" href="/core-category">
+                        <li className={location.pathname.includes('category') ? 'active' : ''}>
+                            <Link to='/category'>
                                 <FontAwesomeIcon icon={faCog} />
-                                <span>Kategori</span>
-                            </a>
+                                <span>Category</span>
+                            </Link>
                         </li>
                         <li >
                             <a className="nav-link" href="/core-sosmed">

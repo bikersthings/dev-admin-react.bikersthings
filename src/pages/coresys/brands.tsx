@@ -10,7 +10,7 @@ export default () => {
     const brandStore = useBrandStore((state) => state.brands)
 
     useEffect(() => {
-        getBrands()
+        if (!brandStore) getBrands()
     }, [getBrands])
 
 

@@ -1,4 +1,4 @@
-import { faEye, faPenClip, faRocket, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ export default () => {
     const categoryStore = useCategoryStore((state) => state.category)
 
     useEffect(() => {
-        getCategory()
+        if (!categoryStore) getCategory()
     }, [getCategory])
 
 
