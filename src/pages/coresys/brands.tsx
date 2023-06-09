@@ -1,11 +1,15 @@
 import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import { useBrandStore } from "../../zustand";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Modal from "../../components/modal/modal";
 
 export default () => {
+    const [modalShow, setModalShow] = useState<boolean>(false)
+    const [name, setName] = useState<string>('')
+    const [files, setFiles] = useState<any>()
+
     const getBrands = useBrandStore((state) => state.getBrands)
     const brandStore = useBrandStore((state) => state.brands)
 
@@ -13,43 +17,30 @@ export default () => {
         if (!brandStore) getBrands()
     }, [getBrands])
 
-
     const deleteItem = () => {
-        Swal.fire({
-            title: 'Hapus Item?',
-            text: 'Item akan terhapus dan menghilang dari daftar pencarian BIKERSTHINGS',
-            icon: 'info',
-            showCancelButton: true,
-            cancelButtonText: 'Cancel',
-            confirmButtonText: 'Ok',
-        }).then((prop) => {
-            if (prop.isConfirmed) {
-                Swal.fire({
-                    title: 'Item Telah Dihapus',
-                    icon: 'success',
-                    confirmButtonText: 'Ok',
-                })
-            }
-        })
+        console.log('delete')
     }
-    const boostItem = () => {
-        Swal.fire({
-            title: 'Boost item?',
-            text: 'Boost! voucher akan terpakai, dan status item akan menjadi Boosted!',
-            icon: 'info',
-            showCancelButton: true,
-            cancelButtonText: 'Cancel',
-            confirmButtonText: 'Ok',
-        }).then((prop) => {
-            if (prop.isConfirmed) {
-                Swal.fire({
-                    text: 'Status item menjadi Boosted!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok',
-                })
-            }
-        })
+
+    const ModalBody = () => {
+        return (
+            <>
+                <div className="form-group">
+                    <label>Nama</label>
+                    <input type="Text" value={name} className="form-control" onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label>Logo</label>
+                    <input type="file" value={files} className="form-control" onChange={(e) => setFiles(e.target.value)} />
+                </div>
+            </>
+        )
     }
+
+    const handleModalSave = () => {
+        console.log('save')
+    }
+
+
 
     return (
         <>
@@ -60,7 +51,6 @@ export default () => {
             </section>
             <section className="d-flex flex-row gap-2 mb-4">
                 <Link to="/brand" className="btn btn-primary">Tambah Brand</Link>
-
             </section>
 
             <section className="table-item">
@@ -106,7 +96,7 @@ export default () => {
                                             <img src={item.logo_brand ? item.logo_brand : "http://via.placeholder.com/100x100"} alt={item.nama_brand} />
                                         </td>
                                         <td className="align-middle ">
-                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => boostItem()}>
+                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => setModalShow(true)}>
                                                 <FontAwesomeIcon icon={faEye} />
                                             </button>
 
@@ -122,6 +112,15 @@ export default () => {
                     </table>
                 </div >
             </section >
+            <Modal
+                modalShow={modalShow}
+                modalHeader={'Brand'}
+                ModalBody={ModalBody}
+                onClose={() => setModalShow(false)}
+                onSave={() => handleModalSave()}
+                buttonTextClose={'Close'}
+                buttonTextSave={'Save'}
+            />
         </>
     )
 }

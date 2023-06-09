@@ -1,4 +1,4 @@
-import { faBoxes, faCashRegister, faClipboardList, faCog, faGift, faImages, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faBoxes, faCog, faGift } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom";

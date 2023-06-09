@@ -6,6 +6,7 @@ import { useCategoryStore } from "../../zustand";
 import { useEffect } from "react";
 
 export default () => {
+
     const getCategory = useCategoryStore((state) => state.getCategory)
     const categoryStore = useCategoryStore((state) => state.category)
 
