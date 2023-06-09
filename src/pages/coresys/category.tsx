@@ -4,11 +4,15 @@ import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import { useCategoryStore } from "../../zustand";
 import { useEffect } from "react";
+import ModalCategory from "../../components/modal/_modal_category";
+import useModal from "../../hooks/useModal";
 
 export default () => {
 
     const getCategory = useCategoryStore((state) => state.getCategory)
     const categoryStore = useCategoryStore((state) => state.category)
+
+    const useModalCategory = useModal()
 
     useEffect(() => {
         if (!categoryStore) getCategory()
@@ -107,7 +111,7 @@ export default () => {
                                             <img src={item.icon_kategori ? item.icon_kategori : "http://via.placeholder.com/100x100"} alt={item.nama_kategori} />
                                         </td>
                                         <td className="align-middle ">
-                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => boostItem()}>
+                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => useModalCategory.openModal()}>
                                                 <FontAwesomeIcon icon={faEye} />
                                             </button>
 
@@ -123,6 +127,10 @@ export default () => {
                     </table>
                 </div >
             </section >
+            <ModalCategory modal={useModalCategory} onSubmit={(name, files) => {
+                console.log(name, files)
+                useModalCategory.closeModal()
+            }} />
         </>
     )
 }

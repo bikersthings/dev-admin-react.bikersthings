@@ -3,44 +3,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom";
 import { useBrandStore } from "../../zustand";
 import { useEffect, useState } from "react";
-import Modal from "../../components/modal/modal";
+import ModalBrands from "../../components/modal/_modal_brands";
+import useModal from "../../hooks/useModal";
 
 export default () => {
-    const [modalShow, setModalShow] = useState<boolean>(false)
-    const [name, setName] = useState<string>('')
-    const [files, setFiles] = useState<any>()
+    const [brandId, setBrandId] = useState<string | number>('')
 
-    const getBrands = useBrandStore((state) => state.getBrands)
+    const [modalState, setModalState] = useState<boolean>(false)
+
+    const { brands, getBrands } = useBrandStore()
     const brandStore = useBrandStore((state) => state.brands)
 
+    const useModalBrand = useModal()
+
     useEffect(() => {
-        if (!brandStore) getBrands()
+        if (!brandStore) {
+            getBrands()
+        }
     }, [getBrands])
 
     const deleteItem = () => {
         console.log('delete')
     }
-
-    const ModalBody = () => {
-        return (
-            <>
-                <div className="form-group">
-                    <label>Nama</label>
-                    <input type="Text" value={name} className="form-control" onChange={(e) => setName(e.target.value)} />
-                </div>
-                <div className="form-group">
-                    <label>Logo</label>
-                    <input type="file" value={files} className="form-control" onChange={(e) => setFiles(e.target.value)} />
-                </div>
-            </>
-        )
-    }
-
-    const handleModalSave = () => {
-        console.log('save')
-    }
-
-
 
     return (
         <>
@@ -80,7 +64,7 @@ export default () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {brandStore && brandStore.map((item, index) => {
+                            {brands && brands.map((item, index) => {
                                 return (
                                     <tr className="odd" key={index}>
                                         <td className="align-middle ">
@@ -96,7 +80,10 @@ export default () => {
                                             <img src={item.logo_brand ? item.logo_brand : "http://via.placeholder.com/100x100"} alt={item.nama_brand} />
                                         </td>
                                         <td className="align-middle ">
-                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => setModalShow(true)}>
+                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => {
+                                                setBrandId(item.slug)
+                                                useModalBrand.openModal()
+                                            }}>
                                                 <FontAwesomeIcon icon={faEye} />
                                             </button>
 
@@ -107,20 +94,14 @@ export default () => {
                                     </tr>
                                 )
                             })}
-
                         </tbody>
                     </table>
                 </div >
             </section >
-            <Modal
-                modalShow={modalShow}
-                modalHeader={'Brand'}
-                ModalBody={ModalBody}
-                onClose={() => setModalShow(false)}
-                onSave={() => handleModalSave()}
-                buttonTextClose={'Close'}
-                buttonTextSave={'Save'}
-            />
+            <ModalBrands modal={useModalBrand} onSubmit={(name: string, files: any) => {
+                console.log(name, files)
+                useModalBrand.closeModal()
+            }} />
         </>
     )
 }
