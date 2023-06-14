@@ -48,3 +48,10 @@ export interface CategoryStoreInterface extends CoreSysInterface {
     isError: string | unknown,
     getCategory: () => void,
 }
+
+export interface LoginInterface {
+    user: any,
+    isError: null | unknown
+    isLoading: boolean
+    login: (username: string, password: string) => any
+}

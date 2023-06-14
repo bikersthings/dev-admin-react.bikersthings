@@ -1,6 +1,11 @@
 import { create } from 'zustand'
 import { api } from '../config/api'
-import { UserStoreInterface, BrandStoreInterface, CategoryStoreInterface } from '../types/interface'
+import {
+    UserStoreInterface,
+    BrandStoreInterface,
+    CategoryStoreInterface,
+    LoginInterface
+} from '../types/interface'
 
 
 export const useUserStore = create<UserStoreInterface>()((set) => ({
@@ -51,6 +56,28 @@ export const useCategoryStore = create<CategoryStoreInterface>()((set) => ({
                 metadata: resp.metadata,
                 totalFiltered: resp.response.totalFiltered
             })
+        } catch (error) {
+            set({ isError: error })
+        }
+    }
+}))
+
+export const useLoginStore = create<LoginInterface>()((set) => ({
+    user: '',
+    isError: null,
+    isLoading: false,
+    login: async (username: string, password: string) => {
+        set({ isLoading: true })
+        try {
+            const login = await api('POST', 'auth/login', {
+                email: username,
+                password: password
+            })
+            console.log(login)
+            const resp = await login.json()
+            console.log(resp, 'respo sus')
+            set({ user: resp })
+            return resp
         } catch (error) {
             set({ isError: error })
         }

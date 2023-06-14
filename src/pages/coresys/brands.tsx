@@ -9,8 +9,6 @@ import useModal from "../../hooks/useModal";
 export default () => {
     const [brandId, setBrandId] = useState<string | number>('')
 
-    const [modalState, setModalState] = useState<boolean>(false)
-
     const { brands, getBrands } = useBrandStore()
     const brandStore = useBrandStore((state) => state.brands)
 
@@ -82,7 +80,7 @@ export default () => {
                                         <td className="align-middle ">
                                             <button className="btn btn-info mx-2" id="swalBoost" onClick={() => {
                                                 setBrandId(item.slug)
-                                                useModalBrand.openModal()
+                                                useModalBrand.open()
                                             }}>
                                                 <FontAwesomeIcon icon={faEye} />
                                             </button>
@@ -100,7 +98,7 @@ export default () => {
             </section >
             <ModalBrands modal={useModalBrand} onSubmit={(name: string, files: any) => {
                 console.log(name, files)
-                useModalBrand.closeModal()
+                useModalBrand.close()
             }} />
         </>
     )
