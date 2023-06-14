@@ -111,7 +111,7 @@ export default () => {
                                             <img src={item.icon_kategori ? item.icon_kategori : "http://via.placeholder.com/100x100"} alt={item.nama_kategori} />
                                         </td>
                                         <td className="align-middle ">
-                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => useModalCategory.openModal()}>
+                                            <button className="btn btn-info mx-2" id="swalBoost" onClick={() => useModalCategory.open()}>
                                                 <FontAwesomeIcon icon={faEye} />
                                             </button>
 
@@ -129,7 +129,7 @@ export default () => {
             </section >
             <ModalCategory modal={useModalCategory} onSubmit={(name, files) => {
                 console.log(name, files)
-                useModalCategory.closeModal()
+                useModalCategory.close()
             }} />
         </>
     )

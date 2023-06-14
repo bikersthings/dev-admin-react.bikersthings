@@ -15,19 +15,18 @@ import IceBoxDashboard from "../pages/ice-box-dashboard";
 import Login from "../pages/login";
 import Brands from "../pages/coresys/brands";
 import Category from "../pages/coresys/category";
+import useToken from "../hooks/useToken";
 
-const auth = () => {
-    const state = localStorage.getItem('isLogin')
-    if (state === 'true') return true
-}
+const token = useToken()
 
-const isLoggedIn = auth()
+const isLoggedIn = () => token.getToken()
 
+const auth = isLoggedIn()
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: isLoggedIn ? <Dashboard /> : <Navigate to='/login' />,
+        element: <Dashboard />,
         children: [
             {
                 path: "/",
