@@ -9,10 +9,9 @@ export const api = (
     return fetch(`${baseUrl}/${endpoint}`, {
         method,
         headers: {
-            Authorization: "Bearer 10|kR4BOdULifoNrE7UEg9KPiFVlXlEQ1TAZPYxCh3z",
-
+            'content-type': 'application/json',
+            'Authorization': "Bearer 10|kR4BOdULifoNrE7UEg9KPiFVlXlEQ1TAZPYxCh3z",
         },
-        redirect: 'follow',
         body: data && JSON.stringify(data)
     })
 
