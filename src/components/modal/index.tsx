@@ -11,16 +11,18 @@ export default ({
 }) => {
     return (
         <>
-            <div className={`modal-wrapper ${isOpen ? 'show' : ''}`}>
-                <div className="modal-container">
-                    <div className="modal-header">
-                        {modalHeader}
-                    </div>
-                    <div className="modal-body">
-                        {children}
+            {isOpen &&
+                <div className={`modal-wrapper ${isOpen ? 'show' : ''}`}>
+                    <div className="modal-container">
+                        <div className="modal-header">
+                            {modalHeader}
+                        </div>
+                        <div className="modal-body">
+                            {children}
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </>
     )
 }
