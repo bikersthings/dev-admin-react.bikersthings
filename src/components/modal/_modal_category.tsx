@@ -15,7 +15,7 @@ export default ({
     let logo = brandLogo
     return (
         <>
-            <Modal isOpen={modal.props.isOpen} modalHeader="Brands">
+            <Modal isOpen={modal.isOpen} modalHeader="Brands">
                 <div className="form-group">
                     <label>Nama</label>
                     <input type="Text" className="form-control" onChange={(e) => name = e.target.value} />
@@ -25,7 +25,7 @@ export default ({
                     <input type="file" className="form-control" onChange={(e) => logo = e.target.files} />
                 </div>
                 <div className="d-flex flex-row justify-content-end gap-2">
-                    <button className="btn btn-danger" onClick={() => modal.closeModal()}>
+                    <button className="btn btn-danger" onClick={() => modal.close()}>
                         close
                     </button>
                     <button className="btn btn-primary" onClick={() => onSubmit?.(name, logo)}>
